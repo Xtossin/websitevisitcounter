@@ -1,0 +1,11 @@
+#docker-compose version
+version: '3'
+#this is what we want docker compose to do, note: both containers will be set automatically in same network
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: on-failure #restart in case of crash
+    build: .
+    ports:
+      - "4001:8081"
